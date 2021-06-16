@@ -13,9 +13,6 @@ La aplicación consiste en un almacenamiento de notas de texto plano, usando el 
 El desarrollo se hizo con el plugin Windows Builder de eclipse, que permite trabajar fácilmente con componentes de Swing, y con la librería jdbc, que nos permite conectarnos y hacer peticiones al archivo SQLite.
 
 
-![image](https://user-images.githubusercontent.com/66125885/122150072-9eae6e00-ce4c-11eb-9e78-d2259d1272ff.png)
-
-
 
 
 
