@@ -22,6 +22,12 @@ El desarrollo se hizo con el plugin Windows Builder de eclipse, que permite trab
 
 
 
+
+
+
+
+
+
 **Funciones:**
 
 **1. Carpetas**
