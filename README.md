@@ -57,4 +57,10 @@ En esta pantalla también podemos ver la fecha de la última modificación que h
 
 ![vernota1283](https://user-images.githubusercontent.com/66125885/122243797-ec11f600-ceb3-11eb-88ec-3b62f67dd279.png)
 
+
+
+
+
+Para construir:
+Importar proyecto y libreria jdbc
  
