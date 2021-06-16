@@ -32,7 +32,7 @@ El desarrollo se hizo con el plugin Windows Builder de eclipse, que permite trab
 Crear carpetas que agruparan diferentes notas que tengan alguna característica en común. Es la pantalla principal de la aplicación. Podemos crear, eliminar, editar y entrar a cada carpeta de la lista, además se pueden organizar según fecha de creación o modificación.
 
  
-![image](https://user-images.githubusercontent.com/66125885/122150145-b685f200-ce4c-11eb-9f69-1fc9bbda439d.png)
+![Carpetas4](https://user-images.githubusercontent.com/66125885/122243718-dd2b4380-ceb3-11eb-83ae-a6bae15bd6c4.png)
 
 
 
@@ -44,7 +44,7 @@ Las notas también se pueden ordenar según fecha de creación o fecha de modifi
 
 
  
-![image](https://user-images.githubusercontent.com/66125885/122150154-bab20f80-ce4c-11eb-8377-5a05594359c1.png)
+![notas123](https://user-images.githubusercontent.com/66125885/122243767-e6b4ab80-ceb3-11eb-9a96-d12a8489046a.png)
 
 
 
@@ -55,6 +55,6 @@ Ver y modificar los contenidos cada nota. La primera línea de la nota se usará
 En esta pantalla también podemos ver la fecha de la última modificación que habíamos realizado a esta.
 
 
-![image](https://user-images.githubusercontent.com/66125885/122150163-be459680-ce4c-11eb-8b0b-292c9e44245d.png)
+![vernota1283](https://user-images.githubusercontent.com/66125885/122243797-ec11f600-ceb3-11eb-88ec-3b62f67dd279.png)
 
  
