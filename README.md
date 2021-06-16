@@ -1,5 +1,5 @@
 # Notas-Swing
-Trabajo para Programacion Avanzada
+**Trabajo para Programacion Avanzada**
 
 Informe incluido: Informe.docx
 Aplicación de Notas
@@ -25,10 +25,8 @@ El desarrollo se hizo con el plugin Windows Builder de eclipse, que permite trab
 
 
 
+**Funciones:**
 
-
-
-Funciones:
 1. Carpetas
 Crear carpetas que agruparan diferentes notas que tengan alguna característica en común. Es la pantalla principal de la aplicación. Podemos crear, eliminar, editar y entrar a cada carpeta de la lista, además se pueden organizar según fecha de creación o modificación.
 
@@ -37,8 +35,8 @@ Crear carpetas que agruparan diferentes notas que tengan alguna característica 
 
 
 
-
-2. Lista notas
+**
+2. Lista notas**
 Las diferentes notas dentro de la carpeta seleccionada. Se toma como titulo la primera línea de nota completa. 
 En esta pantalla podemos crear una nueva nota, entrar a una nota existente, o eliminarla.
 Las notas también se pueden ordenar según fecha de creación o fecha de modificación.
@@ -50,7 +48,7 @@ Las notas también se pueden ordenar según fecha de creación o fecha de modifi
 
 
 
-3. Nota:
+**3. Nota:**
 Ver y modificar los contenidos cada nota. La primera línea de la nota se usará como título.
 En esta pantalla también podemos ver la fecha de la última modificación que habíamos realizado a esta.
 
