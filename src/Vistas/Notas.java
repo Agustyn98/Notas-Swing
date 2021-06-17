@@ -37,6 +37,9 @@ import javax.swing.BoxLayout;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Notas extends JFrame {
 
@@ -80,7 +83,7 @@ public class Notas extends JFrame {
 		listNotas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listNotas.setFont(new Font("Tahoma", Font.BOLD, 24));
 		listNotas.setFixedCellHeight(40);
-		listNotas.setBounds(36, 80, 467, 341);
+		listNotas.setBounds(36, 90, 467, 341);
 		contentPane.add(listNotas);
 		listNotas.setCellRenderer(new DefaultListCellRenderer() {
 			public Component getListCellRendererComponent(JList list, Object value, int index,
@@ -96,7 +99,7 @@ public class Notas extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(36, 432, 467, 40);
+		panel.setBounds(36, 442, 467, 40);
 		contentPane.add(panel);
 		panel.setLayout(new GridLayout(0, 4, 0, 0));
 		
@@ -137,7 +140,7 @@ public class Notas extends JFrame {
 		});
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(36, 29, 467, 40);
+		panel_1.setBounds(36, 10, 467, 40);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -155,6 +158,23 @@ public class Notas extends JFrame {
 		panel_1.add(comboBoxOrdenar);
 		comboBoxOrdenar.setModel(new DefaultComboBoxModel(new String[] {"Mas viejos", "Mas nuevas", "Ultima modificacion"}));
 		comboBoxOrdenar.setSelectedIndex(2);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String busqueda = textField.getText();
+				if(busqueda == null || busqueda.isBlank()) {
+					actualizarLista();
+				}else {
+					actualizarListaBusqueda(busqueda);
+				}
+			}
+		});
+		textField.setToolTipText("Buscar");
+		textField.setBounds(73, 59, 391, 22);
+		contentPane.add(textField);
+		textField.setColumns(10);
 		comboBoxOrdenar.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				var index = comboBoxOrdenar.getSelectedIndex();
@@ -191,10 +211,16 @@ public class Notas extends JFrame {
 	}
 	
 	int orden = 3;
+	private JTextField textField;
 	public void actualizarLista() {
 		var db = ManejadorDB.getInstance();
-
 		var notas = db.seleccionarNotas(carpeta.id, orden);
+		listNotas.setListData(notas.toArray());
+	}
+	
+	public void actualizarListaBusqueda(String busqueda) {
+		var db = ManejadorDB.getInstance();
+		var notas = db.buscarNotas(busqueda, carpeta.id);
 		listNotas.setListData(notas.toArray());
 	}
 }

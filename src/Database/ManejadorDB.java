@@ -44,9 +44,9 @@ public class ManejadorDB {
             System.out.println(e.getMessage());  
         }  
     }
+    
     public void editarCarpeta(int idCarpeta, String nombre) {
-    	String query = "UPDATE folders SET name='" + nombre + "'WHERE id=" + idCarpeta;
-    	
+    	String query = "UPDATE folders SET name='" + nombre + "'WHERE id=" + idCarpeta;    	
     	try {
             Connection conn = DriverManager.getConnection(url); 
             PreparedStatement pstmt = conn.prepareStatement(query);  
@@ -57,6 +57,7 @@ public class ManejadorDB {
             System.out.println(e.getMessage());  
 		}
     }
+    
     public void agregarNota(Nota nota) {
     	String query = "INSERT INTO notes(text,dateModified,idFolder) VALUES (?,?,?)";
         try{  
@@ -71,6 +72,7 @@ public class ManejadorDB {
             System.out.println(e.getMessage());  
         }  
     }
+    
     public void editarNota(int idNota, String texto) {
     	
     	String query = "UPDATE notes SET text='" + texto + "'WHERE id=" + idNota;
@@ -85,6 +87,7 @@ public class ManejadorDB {
             System.out.println(e.getMessage());  
 		}
     }
+    
 	public ArrayList<Carpeta> seleccionarTodasCarpetas(int ordernarPor) {
 		String query = "SELECT * FROM folders";
 		switch(ordernarPor) {
@@ -137,19 +140,13 @@ public class ManejadorDB {
 
 		}
 		
-
 		var notas = new ArrayList<Nota>();
 		try {
             Connection conn = DriverManager.getConnection(url); 
             Statement stmt  = conn.createStatement();  
             ResultSet rs    = stmt.executeQuery(query);  
-              
-            
-            while (rs.next()) {  
-            	/*
-                System.out.println(rs.getInt("id") +  "\t" +   
-                                   rs.getString("name"));*/
-                
+             
+            while (rs.next()) {                  
                 int id = rs.getInt("id");
                 String texto = rs.getString("text");
                 String fechaModificacion = rs.getString("dateModified");
@@ -226,6 +223,30 @@ public class ManejadorDB {
 		}catch(Exception e) {
             System.out.println(e.getMessage());  
 		}
+	}
+	
+	public ArrayList<Nota> buscarNotas(String buscar, int idCarpeta) {
+
+		String query = "SELECT * FROM notes WHERE idFolder = " + idCarpeta + " AND text LIKE '%" + buscar + "%' ORDER BY dateModified desc";
+		var notas = new ArrayList<Nota>();
+		try {
+            Connection conn = DriverManager.getConnection(url); 
+            Statement stmt  = conn.createStatement();  
+            ResultSet rs    = stmt.executeQuery(query);  
+              
+            while (rs.next()) {   
+                int id = rs.getInt("id");
+                String texto = rs.getString("text");
+                String fechaModificacion = rs.getString("dateModified");
+
+                notas.add(new Nota(id,texto,fechaModificacion,idCarpeta ));
+            }
+            conn.close();
+		}catch (Exception e) {
+            System.out.println(e.getMessage());  
+		}
+		
+		return notas;
 	}
 }
 
