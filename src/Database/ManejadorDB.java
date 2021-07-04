@@ -201,6 +201,22 @@ public class ManejadorDB {
 		}
 	}
 	
+	public void eliminarNotas(ArrayList<Integer> ids) {
+		String query = "DELETE FROM notes WHERE id = " + ids.get(0);
+		for(int i=1;i<ids.size();i++) {
+			query+= " OR id = " + ids.get(i);
+		}
+		try {
+            Connection conn = DriverManager.getConnection(url); 
+            PreparedStatement pstmt = conn.prepareStatement(query);  
+            pstmt.execute();
+            conn.close();
+            
+		}catch(Exception e) {
+            System.out.println(e.getMessage());  
+		}
+	}
+	
 	public void actualizarNota(Nota nota) {
 		String query = "UPDATE notes SET text = '" + nota.texto + "', dateModified = '" + nota.fechaModificacion + "' WHERE id = " + nota.id;
 		try {
